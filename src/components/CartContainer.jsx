@@ -1,8 +1,9 @@
 import React from 'react'
-import { useGlobalContext } from './context'
+import CardItem from './CardItem';
+import { useGlobalContext } from './Context'
 
 const CartContainer = () => {
-    const {cart} = useGlobalContext();
+    const {cart,amount} = useGlobalContext();
     if(cart.length === 0 ){
         return (
             <section className='cart'>
@@ -20,12 +21,14 @@ const CartContainer = () => {
         <h2>your wishlist</h2>
       </header>
       <div>
-
+        {cart.map((item)=> {
+          return <CardItem key={item.id} {...item}/>
+        })}
       </div>
       <footer>
         <hr />
         <div className="class-total">
-            <h4>total<span>$ 0.00</span></h4>
+            <h4>total<span>$ {amount}</span></h4>
         </div>
         <button className='btn clear-btn' onClick={() => console.log('clear cart')}>clear cart</button>
       </footer>
