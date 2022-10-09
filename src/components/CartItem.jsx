@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from './Context'
 
 
-const CardItem = ({id, img , title ,price ,amount}) => {
+const CartItem = ({id, img , title ,price ,amount}) => {
     const {remove,increase,decrease,toggleAmount} = useGlobalContext();
   return (
     <article className='cart-item'>
@@ -26,4 +26,4 @@ const CardItem = ({id, img , title ,price ,amount}) => {
   )
 }
 
-export default CardItem
+export default CartItem
